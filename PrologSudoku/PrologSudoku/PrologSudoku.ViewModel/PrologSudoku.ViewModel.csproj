@@ -4,7 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}</ProjectGuid>
+=======
+    <ProjectGuid>{486E9915-2173-441C-AD25-F8FB5ECC1598}</ProjectGuid>
+>>>>>>> develop
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrologSudoku.ViewModel</RootNamespace>
@@ -41,6 +45,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <ProjectReference Include="..\PrologSudoku.Model\PrologSudoku.Model.csproj">
+      <Project>{93473887-7e56-4f41-8240-b225342c2f7e}</Project>
+      <Name>PrologSudoku.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+>>>>>>> develop
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
