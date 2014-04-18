@@ -26,6 +26,32 @@ namespace PrologSudoku.UI
         public MainWindow()
         {
             InitializeComponent();
+            GenerateSquares();
+        }
+
+        private void GenerateSquares()
+        {
+            // Generate rows of the grid
+            for (int i = 0; i < 9; i++)
+                Squares.RowDefinitions.Add(new RowDefinition());
+
+            // Generate columns of the grid
+            for (int j = 0; j < 9; j++)
+                Squares.ColumnDefinitions.Add(new ColumnDefinition());
+
+            // Generate pixels
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    int current = i * 9 + j;
+                    var rectangle = new Rectangle { Fill = new SolidColorBrush(Colors.Black), Stroke = new SolidColorBrush(Colors.Lime), StrokeThickness = 1 };
+
+                    Grid.SetRow(rectangle, i);
+                    Grid.SetColumn(rectangle, j);
+                    Squares.Children.Add(rectangle);
+                }
+            }
         }
 
 
