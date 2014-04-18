@@ -1,4 +1,7 @@
-﻿using PrologSudoku.ViewModel.ViewModel.Abstract;
+﻿using System.Windows.Input;
+using PrologSudoku.Model.Model.Abstract;
+using PrologSudoku.Model.Model.Concrete;
+using PrologSudoku.ViewModel.ViewModel.Abstract;
 
 namespace PrologSudoku.ViewModel.ViewModel.Concrete
 {
@@ -9,13 +12,19 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
         private static IMainViewModel _instance;
         public static IMainViewModel Instance { get { return _instance ?? (_instance = new MainViewModel()); } }
 
+        public ISudoku Sudoku { get; private set; }
+        public ICommand ResolveCommand { get; private set; }
+
         #endregion
 
 
 
         #region Contructor
 
-        private MainViewModel() { }
+        private MainViewModel()
+        {
+            Sudoku = new Sudoku();
+        }
 
         #endregion
     }
