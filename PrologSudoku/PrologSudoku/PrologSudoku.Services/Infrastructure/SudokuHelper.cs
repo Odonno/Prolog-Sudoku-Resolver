@@ -46,7 +46,14 @@ namespace PrologSudoku.Services.Infrastructure
 
         public static bool IsSudokuCorrect(this ISudoku sudoku)
         {
+            // TODO : test it
             return sudoku.IsRowsCorrect() && sudoku.IsColumnsCorrect() && sudoku.IsInternSquaresCorrect();
+        }
+
+        public static bool IsSudokuComplete(this ISudoku sudoku)
+        {
+            // TODO : test it
+            return sudoku.Squares.All(s => s.Value > 0);
         }
 
         public static bool IsRowsCorrect(this ISudoku sudoku)
