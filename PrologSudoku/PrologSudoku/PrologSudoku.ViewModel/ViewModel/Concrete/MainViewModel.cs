@@ -14,7 +14,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
     {
         #region Fields
 
-        private IResolverService _resolverService = new ResolverService();
+        private readonly IResolverService _resolverService = new ResolverService();
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
 
             ResolveCommand = new RelayCommand(Resolve);
             ClearSudokuCommand = new RelayCommand(ClearSudoku, CanClearSudoku);
-            SelectSquareCommand = new RelayCommand(SelectSquare);
+            SelectSquareCommand = new RelayCommand<ISquare>(SelectSquare, CanSelectSquare);
         }
 
         #endregion
@@ -64,9 +64,13 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
                 square.Value = 0;
         }
 
-        public void SelectSquare()
+        public bool CanSelectSquare(ISquare square)
         {
-            throw new NotImplementedException();
+            return square.Value != SelectedValue;
+        }
+        public void SelectSquare(ISquare square)
+        {
+            square.Value = SelectedValue;
         }
 
         #endregion
