@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PrologSudoku.Model.Model.Abstract;
 using PrologSudoku.Model.Model.Concrete;
 using PrologSudoku.Services.Infrastructure;
 
@@ -59,6 +61,54 @@ namespace PrologSudoku.Test
                                        "1,2,3,4,5,6,7,8,9," +
                                        "1,2,3,4,5,6,7,8,9," +
                                        "1,2,3,4,5,6,7,8,9]");
+        }
+
+        [TestMethod]
+        public void Is_Nine_Squares_Correct_Return_True()
+        {
+            // arrange
+            var squares = new List<ISquare>
+            {
+                new Square {Value = 1},
+                new Square {Value = 2},
+                new Square {Value = 3},
+                new Square {Value = 4},
+                new Square {Value = 5},
+                new Square {Value = 6},
+                new Square {Value = 7},
+                new Square {Value = 8},
+                new Square {Value = 9},
+            };
+
+            // act
+            bool isCorrect = squares.IsNineSquaresCorrect();
+
+            // assert
+            Assert.IsTrue(isCorrect);
+        }
+
+        [TestMethod]
+        public void Is_Nine_Squares_Incorrect_Return_False()
+        {
+            // arrange
+            var squares = new List<ISquare>
+            {
+                new Square {Value = 1},
+                new Square {Value = 2},
+                new Square {Value = 2},
+                new Square {Value = 4},
+                new Square {Value = 5},
+                new Square {Value = 3},
+                new Square {Value = 7},
+                new Square {Value = 9},
+                new Square {Value = 9},
+            };
+
+            // act
+            bool isCorrect = squares.IsNineSquaresCorrect();
+
+            // assert
+            Assert.IsFalse(isCorrect);
         }
     }
 }
