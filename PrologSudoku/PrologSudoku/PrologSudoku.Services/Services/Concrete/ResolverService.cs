@@ -12,7 +12,7 @@ namespace PrologSudoku.Services.Services.Concrete
         #region Properties
 
         public string PrologFilePath { get { return "C:/Program Files/swipl/bin/swipl.exe"; } }
-        public string SudokuPrologFilePath { get { return Path.Combine(Directory.GetCurrentDirectory(), "Assets/sudoku.pl"); } }
+        public string SudokuPrologFilePath { get { return Path.Combine(Directory.GetCurrentDirectory(), "Assets/sudoku.pl").Replace("\\", "/"); } }
 
         #endregion
 
@@ -44,7 +44,7 @@ namespace PrologSudoku.Services.Services.Concrete
             // Envoi d'un prédicat
             // convert sudoku to prolog tab
             prologInput.WriteLine("exec_sudoku({0}, X).", sudoku.ConvertSudokuToPrologTab());
-            Thread.Sleep(100);
+            Thread.Sleep(500);
 
             // On ferme le processus pour pouvoir lire son contenu
             process.Kill();
