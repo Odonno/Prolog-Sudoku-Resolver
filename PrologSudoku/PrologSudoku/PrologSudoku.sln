@@ -1,13 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-<<<<<<< HEAD
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.Model", "PrologSudoku.Model\PrologSudoku.Model.csproj", "{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.ViewModel", "PrologSudoku.ViewModel\PrologSudoku.ViewModel.csproj", "{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.UI", "PrologSudoku.UI\PrologSudoku.UI.csproj", "{1D920D58-8444-4793-AE6C-CE3622263D50}"
-=======
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -16,7 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.Model", "PrologSudoku.Model\PrologSudoku.Model.csproj", "{93473887-7E56-4F41-8240-B225342C2F7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.ViewModel", "PrologSudoku.ViewModel\PrologSudoku.ViewModel.csproj", "{486E9915-2173-441C-AD25-F8FB5ECC1598}"
->>>>>>> develop
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,23 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-<<<<<<< HEAD
-		{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A9CC29D-1B82-4C3D-98DF-0FD3337A957A}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
->>>>>>> develop
 		{1D920D58-8444-4793-AE6C-CE3622263D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D920D58-8444-4793-AE6C-CE3622263D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D920D58-8444-4793-AE6C-CE3622263D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D920D58-8444-4793-AE6C-CE3622263D50}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
-=======
 		{93473887-7E56-4F41-8240-B225342C2F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93473887-7E56-4F41-8240-B225342C2F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93473887-7E56-4F41-8240-B225342C2F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,7 +27,6 @@ Global
 		{486E9915-2173-441C-AD25-F8FB5ECC1598}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{486E9915-2173-441C-AD25-F8FB5ECC1598}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{486E9915-2173-441C-AD25-F8FB5ECC1598}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> develop
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
