@@ -51,6 +51,7 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +89,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrologSudoku.Model\PrologSudoku.Model.csproj">
+      <Project>{93473887-7e56-4f41-8240-b225342c2f7e}</Project>
+      <Name>PrologSudoku.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PrologSudoku.ViewModel\PrologSudoku.ViewModel.csproj">
+      <Project>{486e9915-2173-441c-ad25-f8fb5ecc1598}</Project>
+      <Name>PrologSudoku.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

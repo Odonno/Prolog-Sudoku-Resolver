@@ -5,6 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DC4CC69E-55F9-4186-9BC9-6EE7812F094B}</ProjectGuid>
+    <ProjectGuid>{93473887-7E56-4F41-8240-B225342C2F7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrologSudoku.Model</RootNamespace>
