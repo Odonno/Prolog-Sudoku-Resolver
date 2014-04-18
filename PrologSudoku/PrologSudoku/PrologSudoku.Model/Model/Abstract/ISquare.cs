@@ -1,4 +1,4 @@
-﻿namespace PrologSudoku.Model.Abstract
+﻿namespace PrologSudoku.Model.Model.Abstract
 {
     public interface ISquare
     {

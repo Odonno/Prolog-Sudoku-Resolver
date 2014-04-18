@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using PrologSudoku.Model.Abstract;
+﻿using PrologSudoku.Model.Model.Abstract;
 
-namespace PrologSudoku.Model.Concrete
+namespace PrologSudoku.Model.Model.Concrete
 {
     public class Sudoku : ISudoku
     {

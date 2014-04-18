@@ -39,10 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\ISquare.cs" />
-    <Compile Include="Abstract\ISudoku.cs" />
-    <Compile Include="Concrete\Square.cs" />
-    <Compile Include="Concrete\Sudoku.cs" />
+    <Compile Include="Model\Abstract\ISquare.cs" />
+    <Compile Include="Model\Abstract\ISudoku.cs" />
+    <Compile Include="Model\Concrete\Square.cs" />
+    <Compile Include="Model\Concrete\Sudoku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -15,6 +15,8 @@ using System.IO;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Threading;
+using PrologSudoku.ViewModel.ViewModel.Abstract;
+using PrologSudoku.ViewModel.ViewModel.Concrete;
 
 namespace PrologSudoku.UI
 {
@@ -23,11 +25,30 @@ namespace PrologSudoku.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Fields
+
+        private readonly IMainViewModel _mainViewModel;
+
+        #endregion
+
+
+
+        #region Constructor
+
         public MainWindow()
         {
+            _mainViewModel = new MainViewModel();
+            DataContext = _mainViewModel;
+
             InitializeComponent();
+
             GenerateSquares();
         }
+
+        #endregion
+
+
+        #region Methods
 
         private void GenerateSquares()
         {
@@ -83,6 +104,8 @@ namespace PrologSudoku.UI
             File.AppendAllText("C:/Users/Matthieu/Desktop/sortie_Sudoku.txt", temp);
             //Console.ReadLine();
         }
+
+        #endregion
     }
 }
 
