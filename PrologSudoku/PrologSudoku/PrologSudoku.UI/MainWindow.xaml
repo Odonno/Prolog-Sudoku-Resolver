@@ -3,6 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>                    
+            </Grid.RowDefinitions>
+            
+            <Rectangle Grid.Row="0" Stroke="Black" />
+            <Rectangle Grid.Row="1" Stroke="Black" />
+            <Rectangle Grid.Row="2" Stroke="Black" />
+            <Rectangle Grid.Row="3" Stroke="Black" />
+            <Rectangle Grid.Row="4" Stroke="Black" />
+            <Rectangle Grid.Row="5" Stroke="Black" />
+            <Rectangle Grid.Row="6" Stroke="Black" />
+            <Rectangle Grid.Row="7" Stroke="Black" />
+            <Rectangle Grid.Row="8" Stroke="Black" />
+            <Rectangle Grid.Row="9" Stroke="Black" />
+            
+        </Grid>
+
+
+        <Grid x:Name="Squares" Grid.Column="1"/>
+
     </Grid>
 </Window>
