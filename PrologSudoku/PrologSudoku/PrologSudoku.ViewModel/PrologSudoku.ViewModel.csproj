@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,6 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\MVVM\Command\RelayCommand.cs" />
+    <Compile Include="Infrastructure\MVVM\Command\RelayCommandGeneric.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\IExecuteWithObject.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\IExecuteWithObjectAndResult.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakAction.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakActionGeneric.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakFunc.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakFuncGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +60,7 @@
       <Name>PrologSudoku.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

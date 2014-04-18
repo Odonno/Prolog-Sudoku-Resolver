@@ -44,7 +44,6 @@ namespace PrologSudoku.UI
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    int current = i * 9 + j;
                     var rectangle = new Rectangle { Fill = new SolidColorBrush(Colors.Black), Stroke = new SolidColorBrush(Colors.Lime), StrokeThickness = 1 };
 
                     Grid.SetRow(rectangle, i);
