@@ -19,7 +19,6 @@ namespace PrologSudoku.UI
         #endregion
 
 
-
         #region Constructor
 
         public MainWindow()
@@ -30,6 +29,7 @@ namespace PrologSudoku.UI
             InitializeComponent();
 
             GenerateSquares();
+            GenerateValues();
         }
 
         #endregion
@@ -37,23 +37,53 @@ namespace PrologSudoku.UI
 
         #region Methods
 
+        private void GenerateValues()
+        {
+            for (short i = 0; i < 10; i++)
+            {
+                // Generate rows of the grid
+                Values.RowDefinitions.Add(new RowDefinition());
+
+                // Generate values
+
+                // Create the TextBlock to show the value of the square
+                var textBlock = new TextBlock
+                {
+                    Text = (i == 9) ? string.Empty : (i + 1).ToString(),
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center
+                };
+
+                // Create a Border around the TextBlock
+                var border = new Border
+                {
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = new SolidColorBrush(Colors.Black),
+                    Child = textBlock
+                };
+
+                Grid.SetRow(border, i);
+                Values.Children.Add(border);
+            }
+        }
+
         private void GenerateSquares()
         {
             // Generate rows of the grid
-            for (int i = 0; i < 9; i++)
+            for (short i = 0; i < 9; i++)
                 Squares.RowDefinitions.Add(new RowDefinition());
 
             // Generate columns of the grid
-            for (int j = 0; j < 9; j++)
+            for (short j = 0; j < 9; j++)
                 Squares.ColumnDefinitions.Add(new ColumnDefinition());
 
-            // Generate pixels
+            // Generate squares
             const short extraThickness = 5;
             const short minThickness = 1;
 
-            for (int i = 0; i < 9; i++)
+            for (short i = 0; i < 9; i++)
             {
-                for (int j = 0; j < 9; j++)
+                for (short j = 0; j < 9; j++)
                 {
                     // Get thickness of the Square border
                     short leftThickness = (j % 3 == 0) ? extraThickness : minThickness;
@@ -64,7 +94,7 @@ namespace PrologSudoku.UI
                     // Create the TextBlock to show the value of the square
                     var textBlock = new TextBlock
                     {
-                        Text = _mainViewModel.Sudoku.Squares[i * 9 + j].Value.ToString(), 
+                        Text = _mainViewModel.Sudoku.Squares[i * 9 + j].Value.ToString(),
                         VerticalAlignment = VerticalAlignment.Center,
                         HorizontalAlignment = HorizontalAlignment.Center
                     };

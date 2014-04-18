@@ -21,34 +21,8 @@
             </Menu>
         </DockPanel>
 
-
-        <Grid x:Name="Values" Grid.Row="1" Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>                    
-            </Grid.RowDefinitions>
-            
-            <Rectangle Grid.Row="0" Stroke="Black" />
-            <Rectangle Grid.Row="1" Stroke="Black" />
-            <Rectangle Grid.Row="2" Stroke="Black" />
-            <Rectangle Grid.Row="3" Stroke="Black" />
-            <Rectangle Grid.Row="4" Stroke="Black" />
-            <Rectangle Grid.Row="5" Stroke="Black" />
-            <Rectangle Grid.Row="6" Stroke="Black" />
-            <Rectangle Grid.Row="7" Stroke="Black" />
-            <Rectangle Grid.Row="8" Stroke="Black" />
-            <Rectangle Grid.Row="9" Stroke="Black" />
-        </Grid>
+        <Grid x:Name="Values" Grid.Row="1" Grid.Column="0"/>
 
         <Grid x:Name="Squares" Grid.Row="1" Grid.Column="1"/>
-
     </Grid>
 </Window>
