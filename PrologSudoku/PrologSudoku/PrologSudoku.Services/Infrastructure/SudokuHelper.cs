@@ -44,6 +44,11 @@ namespace PrologSudoku.Services.Infrastructure
 
         #region Methods used with C#
 
+        public static bool IsSudokuCorrect(this ISudoku sudoku)
+        {
+            return sudoku.IsRowsCorrect() && sudoku.IsColumnsCorrect() && sudoku.IsInternSquaresCorrect();
+        }
+
         public static bool IsRowsCorrect(this ISudoku sudoku)
         {
             // TODO : test it

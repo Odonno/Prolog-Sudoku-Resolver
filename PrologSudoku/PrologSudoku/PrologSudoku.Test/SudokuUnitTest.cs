@@ -110,5 +110,7 @@ namespace PrologSudoku.Test
             // assert
             Assert.IsFalse(isCorrect);
         }
+
+        // TODO : make a test with some zeros
     }
 }
