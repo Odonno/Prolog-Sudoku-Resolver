@@ -14,7 +14,7 @@ namespace PrologSudoku.Services.Services.Abstract
 
         #region Methods
 
-        ISudoku Resolve(ISudoku sudoku);
+        void Resolve(ISudoku sudoku);
 
         #endregion
     }

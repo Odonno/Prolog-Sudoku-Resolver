@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using PrologSudoku.Model.Model.Abstract;
+using PrologSudoku.Services.Infrastructure;
 using PrologSudoku.Services.Services.Abstract;
 
 namespace PrologSudoku.Services.Services.Concrete
@@ -19,7 +19,7 @@ namespace PrologSudoku.Services.Services.Concrete
 
         #region Methods
 
-        public ISudoku Resolve(ISudoku sudoku)
+        public void Resolve(ISudoku sudoku)
         {
             // Création du processus Prolog
             var process = new Process
@@ -43,7 +43,7 @@ namespace PrologSudoku.Services.Services.Concrete
 
             // Envoi d'un prédicat
             // convert sudoku to prolog tab
-            prologInput.WriteLine("exec_sudoku({0}, X).", ConvertSudokuToPrologTab(sudoku));
+            prologInput.WriteLine("exec_sudoku({0}, X).", sudoku.ConvertSudokuToPrologTab());
             Thread.Sleep(200);
 
             // On ferme le processus pour pouvoir lire son contenu
@@ -51,17 +51,7 @@ namespace PrologSudoku.Services.Services.Concrete
 
             // Lecture du résultat
             // convert prolog tab to sudoku
-            return ConvertPrologTabToSudoku(prologOutput.ReadToEnd());
-        }
-
-        private string ConvertSudokuToPrologTab(ISudoku sudoku)
-        {
-            throw new NotImplementedException();
-        }
-
-        private ISudoku ConvertPrologTabToSudoku(string prologTab)
-        {
-            throw new NotImplementedException();
+            sudoku.ConvertPrologTabToSudoku(prologOutput.ReadToEnd());
         }
 
         #endregion

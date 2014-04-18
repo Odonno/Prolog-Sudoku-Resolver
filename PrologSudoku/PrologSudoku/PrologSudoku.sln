@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.ViewModel", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.Services", "PrologSudoku.Services\PrologSudoku.Services.csproj", "{812E5515-21AF-4029-9F27-0AE72F70EB42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrologSudoku.Test", "PrologSudoku.Test\PrologSudoku.Test.csproj", "{A28C33D7-F436-410B-85B5-3DFDBA155A7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{812E5515-21AF-4029-9F27-0AE72F70EB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{812E5515-21AF-4029-9F27-0AE72F70EB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{812E5515-21AF-4029-9F27-0AE72F70EB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28C33D7-F436-410B-85B5-3DFDBA155A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28C33D7-F436-410B-85B5-3DFDBA155A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28C33D7-F436-410B-85B5-3DFDBA155A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28C33D7-F436-410B-85B5-3DFDBA155A7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
