@@ -27,7 +27,7 @@ namespace PrologSudoku.UI
 
         public MainWindow()
         {
-            _mainViewModel = new MainViewModel();
+            _mainViewModel = MainViewModel.Instance;
             DataContext = _mainViewModel;
 
             InitializeComponent();
