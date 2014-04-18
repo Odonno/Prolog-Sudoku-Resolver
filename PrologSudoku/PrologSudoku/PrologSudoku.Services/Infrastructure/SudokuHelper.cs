@@ -14,8 +14,8 @@ namespace PrologSudoku.Services.Infrastructure
             sbuilder.Append("[");
 
             // Add every values
-            foreach (ISquare t in sudoku.Squares)
-                sbuilder.Append(string.Format("{0},", t.Value));
+            foreach (var square in sudoku.Squares)
+                sbuilder.Append(string.Format("{0},", square.Value));
 
             // Delete the last character (',')
             sbuilder.Remove(sbuilder.Length - 1, 1);

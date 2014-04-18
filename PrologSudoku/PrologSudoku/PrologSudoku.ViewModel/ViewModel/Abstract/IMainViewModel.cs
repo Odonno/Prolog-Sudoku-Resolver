@@ -8,7 +8,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Abstract
         ISudoku Sudoku { get; }
         short SelectedValue { get; set; }
         ICommand ResolveCommand { get; }
-        ICommand ClearCommand { get; }
-        ICommand SelectCommand { get; }
+        ICommand ClearSudokuCommand { get; }
+        ICommand SelectSquareCommand { get; }
     }
 }
