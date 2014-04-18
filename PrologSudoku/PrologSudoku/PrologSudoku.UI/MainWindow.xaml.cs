@@ -55,11 +55,36 @@ namespace PrologSudoku.UI
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    var rectangle = new Rectangle { Fill = new SolidColorBrush(Colors.Black), Stroke = new SolidColorBrush(Colors.Lime), StrokeThickness = 1 };
+                    short topThickness = 1;
+                    short leftThickness = 1;
+                    short rightThickness = 1;
+                    short bottomThickness = 1;
 
-                    Grid.SetRow(rectangle, i);
-                    Grid.SetColumn(rectangle, j);
-                    Squares.Children.Add(rectangle);
+                    if (j % 3 == 0)
+                        leftThickness = 5;
+
+                    if (i % 3 == 0)
+                        topThickness = 5;
+
+                    if (i == 8)
+                        bottomThickness = 5;
+
+                    if (j == 8)
+                        rightThickness = 5;
+
+
+                    var border = new Border
+                    {
+                        BorderThickness = new Thickness(leftThickness, topThickness, rightThickness, bottomThickness),
+                        BorderBrush = new SolidColorBrush(Colors.Lime)
+                    };
+                    var rectangle = new Rectangle { Fill = new SolidColorBrush(Colors.Black) };
+
+                    border.Child = rectangle;
+
+                    Grid.SetRow(border, i);
+                    Grid.SetColumn(border, j);
+                    Squares.Children.Add(border);
                 }
             }
         }
@@ -68,4 +93,3 @@ namespace PrologSudoku.UI
     }
 }
 
-    
