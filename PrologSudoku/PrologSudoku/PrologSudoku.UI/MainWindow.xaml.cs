@@ -55,7 +55,7 @@ namespace PrologSudoku.UI
             String temp = prologOutput.ReadToEnd();
 
             //Ecriture dans un fichier
-            System.IO.File.AppendAllText("C:/Users/Matthieu/Desktop/sortie_Sudoku.txt", temp);
+            File.AppendAllText("C:/Users/Matthieu/Desktop/sortie_Sudoku.txt", temp);
             //Console.ReadLine();
         }
     }
