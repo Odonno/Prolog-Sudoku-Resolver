@@ -41,8 +41,11 @@
   <ItemGroup>
     <Compile Include="Infrastructure\SudokuHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abstract\IPrologResolverService.cs" />
+    <Compile Include="Services\Abstract\IRecursiveResolverService.cs" />
     <Compile Include="Services\Abstract\IResolverService.cs" />
-    <Compile Include="Services\Concrete\ResolverService.cs" />
+    <Compile Include="Services\Concrete\RecursiveResolverService.cs" />
+    <Compile Include="Services\Concrete\PrologResolverService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrologSudoku.Model\PrologSudoku.Model.csproj">
