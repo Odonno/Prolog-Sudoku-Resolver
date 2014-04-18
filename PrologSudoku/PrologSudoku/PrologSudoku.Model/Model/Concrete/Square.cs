@@ -1,10 +1,26 @@
-﻿using PrologSudoku.Model.Model.Abstract;
+﻿using System.ComponentModel;
+using PrologSudoku.Model.Model.Abstract;
 
 namespace PrologSudoku.Model.Model.Concrete
 {
-    public class Square : ISquare
+    public class Square : ISquare, INotifyPropertyChanged
     {
-        // TODO : use NotifyPropertyChanged to update the view
-        public short Value { get; set; }
+        private short _value;
+        public short Value { get { return _value; } set { _value = value; RaisePropertyChanged("Value"); } }
+
+
+
+        #region Property Changed implementation
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) 
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

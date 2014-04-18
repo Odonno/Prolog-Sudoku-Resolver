@@ -51,7 +51,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
 
         public void Resolve()
         {
-            throw new NotImplementedException();
+            _resolverService.Resolve(Sudoku);
         }
 
         public bool CanClearSudoku()

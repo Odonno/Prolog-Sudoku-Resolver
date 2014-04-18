@@ -44,7 +44,7 @@ namespace PrologSudoku.Services.Services.Concrete
             // Envoi d'un prédicat
             // convert sudoku to prolog tab
             prologInput.WriteLine("exec_sudoku({0}, X).", sudoku.ConvertSudokuToPrologTab());
-            Thread.Sleep(200);
+            Thread.Sleep(100);
 
             // On ferme le processus pour pouvoir lire son contenu
             process.Kill();
