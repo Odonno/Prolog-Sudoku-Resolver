@@ -14,7 +14,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
     {
         #region Fields
 
-        private readonly IResolverService _resolverService = new ResolverService();
+        private readonly IResolverService _resolverService = new PrologResolverService();
 
         #endregion
 
