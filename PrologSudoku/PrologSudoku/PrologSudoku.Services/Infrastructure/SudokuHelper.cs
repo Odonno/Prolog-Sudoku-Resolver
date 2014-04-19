@@ -58,7 +58,6 @@ namespace PrologSudoku.Services.Infrastructure
 
         public static bool IsRowsCorrect(this ISudoku sudoku)
         {
-            // TODO : test it
             for (short i = 0; i < 9; i++)
                 if (!IsNineSquaresCorrect(sudoku.Squares.Skip(i * 9).Take(9)))
                     return false;
@@ -68,7 +67,6 @@ namespace PrologSudoku.Services.Infrastructure
 
         public static bool IsColumnsCorrect(this ISudoku sudoku)
         {
-            // TODO : test it
             for (short i = 0; i < 9; i++)
                 if (!IsNineSquaresCorrect(sudoku.Squares.Where((s, index) => index % 9 == i)))
                     return false;
@@ -78,10 +76,9 @@ namespace PrologSudoku.Services.Infrastructure
 
         public static bool IsInternSquaresCorrect(this ISudoku sudoku)
         {
-            // TODO : test it
             for (short i = 0; i < 3; i++)
                 for (short j = 0; j < 3; j++)
-                    if (!IsNineSquaresCorrect(sudoku.Squares.Skip(i * 27 + j * 3).Take(3).Skip(6).Take(3).Skip(6).Take(3)))
+                    if (!IsNineSquaresCorrect(sudoku.Squares.Skip(i * 27 + j * 3).Take(27).Where((s, index) => (index % 9) < 3)))
                         return false;
 
             return true;

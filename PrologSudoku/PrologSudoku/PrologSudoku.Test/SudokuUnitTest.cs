@@ -190,6 +190,194 @@ namespace PrologSudoku.Test
             Assert.AreEqual(sudoku.Squares[0].Value, sudokuCopy.Squares[0].Value);
         }
 
+        [TestMethod]
+        public void Is_Rows_Correct_Select_Rows_Correctly()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var result = sudoku.IsRowsCorrect();
+
+            // assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Is_Rows_Correct_Select_Rows_With_Nine_Elements()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var nine = sudoku.Squares.Skip(3 * 9).Take(9).ToArray();
+
+            // assert
+            Assert.AreEqual(nine.Length, 9);
+            Assert.AreEqual(nine[0].Value, 4);
+            Assert.AreEqual(nine[1].Value, 2);
+            Assert.AreEqual(nine[2].Value, 5);
+            Assert.AreEqual(nine[3].Value, 3);
+            Assert.AreEqual(nine[4].Value, 6);
+            Assert.AreEqual(nine[5].Value, 1);
+            Assert.AreEqual(nine[6].Value, 9);
+            Assert.AreEqual(nine[7].Value, 8);
+            Assert.AreEqual(nine[8].Value, 7);
+        }
+
+        [TestMethod]
+        public void Is_Columns_Correct_Select_Columns_Correctly()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var result = sudoku.IsColumnsCorrect();
+
+            // assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Is_Columns_Correct_Select_Columns_With_Nine_Elements()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var nine = sudoku.Squares.Where((s, index) => index % 9 == 1).ToArray();
+
+            // assert
+            Assert.AreEqual(nine.Length, 9);
+            Assert.AreEqual(nine[0].Value, 5);
+            Assert.AreEqual(nine[1].Value, 7);
+            Assert.AreEqual(nine[2].Value, 9);
+            Assert.AreEqual(nine[3].Value, 2);
+            Assert.AreEqual(nine[4].Value, 3);
+            Assert.AreEqual(nine[5].Value, 1);
+            Assert.AreEqual(nine[6].Value, 6);
+            Assert.AreEqual(nine[7].Value, 8);
+            Assert.AreEqual(nine[8].Value, 4);
+        }
+
+        [TestMethod]
+        public void Is_InternSquares_Correct_Select_InternSquares_Correctly()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var result = sudoku.IsInternSquaresCorrect();
+
+            // assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Is_InternSquares_Correct_With_Nine_Elements()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 6, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var nine = sudoku.Squares.Skip(3).Take(27).Where((s, index) => (index % 9) < 3).ToArray();
+
+            // assert
+            Assert.AreEqual(nine.Length, 9);
+            Assert.AreEqual(nine[0].Value, 6);
+            Assert.AreEqual(nine[1].Value, 1);
+            Assert.AreEqual(nine[2].Value, 8);
+            Assert.AreEqual(nine[3].Value, 4);
+            Assert.AreEqual(nine[4].Value, 2);
+            Assert.AreEqual(nine[5].Value, 9);
+            Assert.AreEqual(nine[6].Value, 7);
+            Assert.AreEqual(nine[7].Value, 5);
+            Assert.AreEqual(nine[8].Value, 3);
+        }
 
         [TestMethod]
         public void Can_Resolve_Sudoku()
@@ -226,6 +414,8 @@ namespace PrologSudoku.Test
             Assert.AreEqual(result[3], 6);
             Assert.AreEqual(result[4], 1);
             Assert.AreEqual(result[5], 8);
+            Assert.AreEqual(result[6], 2);
+            Assert.AreEqual(result[8], 9);
         }
     }
 }
