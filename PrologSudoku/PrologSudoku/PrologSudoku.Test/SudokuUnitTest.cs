@@ -398,15 +398,14 @@ namespace PrologSudoku.Test
                 0, 0, 1,    0, 0, 0,    7, 4, 6,
                 0, 4, 0,    0, 0, 0,    0, 2, 0
             };
-            ISudoku sudokuResult;
             var sudoku = new Sudoku(values);
 
             // act
-            recursiveResolver.Resolution(sudoku, out sudokuResult);
+            recursiveResolver.Resolve(sudoku);
 
             var result = new short[81];
-            for (short i = 0; i < sudokuResult.Squares.Length; i++)
-                result[i] = sudokuResult.Squares[i].Value;
+            for (short i = 0; i < sudoku.Squares.Length; i++)
+                result[i] = sudoku.Squares[i].Value;
 
             // assert
             Assert.AreEqual(result[0], 3);

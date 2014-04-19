@@ -11,31 +11,13 @@ namespace PrologSudoku.Services.Services.Concrete
         public void Resolve(ISudoku sudoku)
         {
             ISudoku sudokuResult;
-            Resolution(sudoku, out sudokuResult);
+
+            if (Resolution(sudoku, out sudokuResult))
+                for (short i = 0; i < sudoku.Squares.Length; i++)
+                    sudoku.Squares[i].Value = sudokuResult.Squares[i].Value;
         }
 
-        /*public bool Resolution(ISudoku sudoku)
-        {
-            for (short i = 1; i < 10; i++)
-            {
-                var sudokuResult = new Sudoku(sudoku);
-
-                // add a value that could match instead of a zero
-                var firstZeroSquare = sudokuResult.Squares.First();
-                firstZeroSquare.Value = i;
-
-                // if the sudoku is full / complete (no zero), so it's okay ! (correct or incorrect ?)
-                if (sudoku.IsSudokuComplete())
-                    return sudoku.IsSudokuCorrect();
-
-                // while the sudoku is uncomplete, then continue the recursive resolving method
-                return Resolution(sudokuResult);
-            }
-
-            return false;
-        }*/
-
-        public bool Resolution(ISudoku sudoku, out ISudoku sudokuResult)
+        private bool Resolution(ISudoku sudoku, out ISudoku sudokuResult)
         {
             for (short i = 1; i < 10; i++)
             {
@@ -45,7 +27,7 @@ namespace PrologSudoku.Services.Services.Concrete
                 var firstZeroSquare = sudokuResult.Squares.First(s => s.Value == 0);
                 firstZeroSquare.Value = i;
 
-                // Case 1 ! the sudoku is not correct, so continue
+                // Case 1 : if the sudoku is not correct, so continue
                 if (!sudokuResult.IsSudokuCorrect())
                     continue;
 
