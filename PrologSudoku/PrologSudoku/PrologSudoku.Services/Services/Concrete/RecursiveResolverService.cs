@@ -13,6 +13,13 @@ namespace PrologSudoku.Services.Services.Concrete
         {
             // TODO : Add a value that could match instead of a zero
             
+            throw new NotImplementedException();
+        }
+
+        public bool Resolution(ISudoku sudoku)
+        {
+            throw new NotImplementedException();
+
             if (sudoku.IsSudokuCorrect())
             {
                 // if the sudoku is full / complete (no zero) and correct, so it's okay !

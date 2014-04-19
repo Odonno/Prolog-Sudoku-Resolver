@@ -111,6 +111,57 @@ namespace PrologSudoku.Test
             Assert.IsFalse(isCorrect);
         }
 
-        // TODO : make a test with some zeros
+        [TestMethod]
+        public void Is_Nine_Squares_Incorrect_With_Zeros_Return_False()
+        {
+            // arrange
+            var squares = new List<ISquare>
+            {
+                new Square {Value = 1},
+                new Square {Value = 2},
+                new Square {Value = 2},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 3},
+                new Square {Value = 7},
+                new Square {Value = 9},
+                new Square {Value = 0},
+            };
+
+            // act
+            bool isCorrect = squares.IsNineSquaresCorrect();
+
+            // assert
+            Assert.IsFalse(isCorrect);
+        }
+
+        [TestMethod]
+        public void Can_Instantiate_A_Sudoku_Copy()
+        {
+            // arrange
+            var sudoku = new Sudoku();
+
+            // act
+            var sudokuCopy = new Sudoku(sudoku);
+
+            // assert
+            Assert.AreNotSame(sudoku, sudokuCopy);
+            Assert.AreNotSame(sudoku.Squares, sudokuCopy.Squares);
+        }
+
+        [TestMethod]
+        public void Can_Instantiate_A_Square_Copy()
+        {
+            // arrange
+            var sudoku = new Sudoku();
+
+            // act
+            var sudokuCopy = new Sudoku(sudoku);
+
+            // assert
+            Assert.AreNotSame(sudoku.Squares, sudokuCopy.Squares);
+            Assert.AreNotSame(sudoku.Squares[0], sudokuCopy.Squares[0]);
+            Assert.AreEqual(sudoku.Squares[0].Value, sudokuCopy.Squares[0].Value);
+        }
     }
 }
