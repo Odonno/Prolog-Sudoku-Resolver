@@ -416,5 +416,59 @@ namespace PrologSudoku.Test
             Assert.AreEqual(result[6], 2);
             Assert.AreEqual(result[8], 9);
         }
+
+        [TestMethod]
+        public void Is_Sudoku_Uncomplete()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 5, 3,    8, 6, 4,
+
+                4, 2, 5,    3, 0, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var result = sudoku.IsSudokuComplete();
+
+            // assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void Is_Sudoku_Incorrect()
+        {
+            // arrange
+            var values = new short[]
+            {
+                3, 5, 4,    6, 1, 8,    2, 7, 9,
+                8, 7, 6,    4, 2, 9,    1, 5, 3,
+                1, 9, 2,    7, 1, 3,    8, 1, 4,
+
+                4, 2, 5,    3, 0, 1,    9, 8, 7,
+                6, 3, 8,    5, 9, 7,    4, 1, 2,
+                7, 1, 9,    8, 4, 2,    6, 3, 5,
+
+                5, 6, 7,    2, 8, 4,    3, 9, 1,
+                2, 8, 1,    9, 3, 5,    7, 4, 6,
+                9, 4, 3,    1, 7, 6,    5, 2, 8
+            };
+            var sudoku = new Sudoku(values);
+
+            // act
+            var result = sudoku.IsSudokuCorrect();
+
+            // assert
+            Assert.IsFalse(result);
+        }
     }
 }
