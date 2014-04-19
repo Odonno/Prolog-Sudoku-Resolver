@@ -46,6 +46,9 @@ namespace PrologSudoku.UI
 
                 // Generate values
 
+                // TODO : create a UserControl for the generation of values
+                // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
+
                 // Create the TextBlock to show the value of the square
                 var textBlock = new TextBlock
                 {
@@ -90,6 +93,9 @@ namespace PrologSudoku.UI
                     short topThickness = (i % 3 == 0) ? extraThickness : minThickness;
                     short rightThickness = (j == 8) ? extraThickness : minThickness;
                     short bottomThickness = (i == 8) ? extraThickness : minThickness;
+
+                    // TODO : create a UserControl for the generation of squares
+                    // TODO : add an event "LeftMouseButtonDown" to call the command "SelectSquareCommand" of the ViewModel (argument = Square clicked)
 
                     // Create the TextBlock to show the value of the square
                     var textBlock = new TextBlock
