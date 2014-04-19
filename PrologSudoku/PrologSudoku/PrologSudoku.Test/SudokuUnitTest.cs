@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PrologSudoku.Model.Model.Abstract;
 using PrologSudoku.Model.Model.Concrete;
 using PrologSudoku.Services.Infrastructure;
+using PrologSudoku.Services.Services.Concrete;
 
 namespace PrologSudoku.Test
 {
@@ -136,6 +138,30 @@ namespace PrologSudoku.Test
         }
 
         [TestMethod]
+        public void Is_Nine_Squares_Correct_With_Only_Zeros_Return_True()
+        {
+            // arrange
+            var squares = new List<ISquare>
+            {
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+                new Square {Value = 0},
+            };
+
+            // act
+            bool isCorrect = squares.IsNineSquaresCorrect();
+
+            // assert
+            Assert.IsTrue(isCorrect);
+        }
+
+        [TestMethod]
         public void Can_Instantiate_A_Sudoku_Copy()
         {
             // arrange
@@ -162,6 +188,44 @@ namespace PrologSudoku.Test
             Assert.AreNotSame(sudoku.Squares, sudokuCopy.Squares);
             Assert.AreNotSame(sudoku.Squares[0], sudokuCopy.Squares[0]);
             Assert.AreEqual(sudoku.Squares[0].Value, sudokuCopy.Squares[0].Value);
+        }
+
+
+        [TestMethod]
+        public void Can_Resolve_Sudoku()
+        {
+            // arrange
+            var recursiveResolver = new RecursiveResolverService();
+            var values = new short[]
+            {
+                0, 5, 0,    0, 0, 0,    0, 7, 0,
+                8, 7, 6,    0, 0, 0,    1, 0, 0,
+                0, 0, 0,    0, 5, 3,    8, 0, 4,
+
+                4, 2, 0,    0, 6, 0,    9, 0, 0,
+                0, 0, 0,    0, 0, 0,    0, 0, 0,
+                0, 0, 9,    0, 4, 0,    0, 3, 5,
+
+                5, 0, 7,    2, 8, 0,    0, 0, 0,
+                0, 0, 1,    0, 0, 0,    7, 4, 6,
+                0, 4, 0,    0, 0, 0,    0, 2, 0
+            };
+            ISudoku sudokuResult;
+            var sudoku = new Sudoku(values);
+
+            // act
+            recursiveResolver.Resolution(sudoku, out sudokuResult);
+
+            var result = new short[81];
+            for (short i = 0; i < sudokuResult.Squares.Length; i++)
+                result[i] = sudokuResult.Squares[i].Value;
+
+            // assert
+            Assert.AreEqual(result[0], 3);
+            Assert.AreEqual(result[2], 4);
+            Assert.AreEqual(result[3], 6);
+            Assert.AreEqual(result[4], 1);
+            Assert.AreEqual(result[5], 8);
         }
     }
 }

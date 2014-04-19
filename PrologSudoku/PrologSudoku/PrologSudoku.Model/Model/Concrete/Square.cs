@@ -17,6 +17,11 @@ namespace PrologSudoku.Model.Model.Concrete
 
         public Square() { }
 
+        public Square(short value)
+        {
+            _value = value;
+        }
+
         public Square(ISquare square)
         {
             Value = square.Value;

@@ -90,7 +90,11 @@ namespace PrologSudoku.Services.Infrastructure
         public static bool IsNineSquaresCorrect(this IEnumerable<ISquare> squares)
         {
             var results = squares.Where(s => s.Value > 0).GroupBy(s => s.Value, (key, g) => new { value = key, count = g.Count() });
-            return !(results.Max(r => r.count) > 1);
+            
+            if (results.Any())
+                return !(results.Max(r => r.count) > 1);
+
+            return true;
         }
 
         #endregion
