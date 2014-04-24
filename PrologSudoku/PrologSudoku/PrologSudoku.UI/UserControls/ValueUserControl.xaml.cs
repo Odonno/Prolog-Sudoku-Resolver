@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using PrologSudoku.ViewModel.ViewModel.Abstract;
+using PrologSudoku.ViewModel.ViewModel.Concrete;
 
 namespace PrologSudoku.UI.UserControls
 {
@@ -20,14 +10,9 @@ namespace PrologSudoku.UI.UserControls
     /// </summary>
     public partial class ValueUserControl : UserControl
     {
-        #region Fields
-
-        private IMainViewModel _mainViewModel;
-
-        #endregion
-
         #region Properties
 
+        public IMainViewModel Main { get { return MainViewModel.Instance; } }
         public short Value { get; private set; }
 
         #endregion
@@ -35,10 +20,9 @@ namespace PrologSudoku.UI.UserControls
 
         #region Constructor
 
-        public ValueUserControl(IMainViewModel mainViewModel, short value)
+        public ValueUserControl(short value)
         {
             Value = value;
-            _mainViewModel = mainViewModel;
 
             DataContext = this;
 
@@ -47,6 +31,10 @@ namespace PrologSudoku.UI.UserControls
 
         #endregion
 
-        // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
+        // add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
+        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Main.SelectedValue = Value;
+        }
     }
 }

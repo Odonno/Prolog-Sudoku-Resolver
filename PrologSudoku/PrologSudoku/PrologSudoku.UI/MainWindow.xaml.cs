@@ -1,7 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using PrologSudoku.UI.UserControls;
 using PrologSudoku.ViewModel.ViewModel.Abstract;
 using PrologSudoku.ViewModel.ViewModel.Concrete;
@@ -48,7 +46,7 @@ namespace PrologSudoku.UI
                 // Generate values
 
                 // create a UserControl for the generation of values
-                var valueUserControl = new ValueUserControl(_mainViewModel, ((i == 10) ? (short)0 : i));
+                var valueUserControl = new ValueUserControl((i == 10) ? (short)0 : i);
 
                 Grid.SetRow(valueUserControl, i - 1);
                 Values.Children.Add(valueUserControl);
@@ -83,7 +81,7 @@ namespace PrologSudoku.UI
                     };
 
                     // create a UserControl for the generation of squares
-                    var squareUserControl = new SquareUserControl(_mainViewModel, _mainViewModel.Sudoku.Squares[i * 9 + j], borderThickness);
+                    var squareUserControl = new SquareUserControl(_mainViewModel.Sudoku.Squares[i * 9 + j], borderThickness);
 
                     Grid.SetRow(squareUserControl, i);
                     Grid.SetColumn(squareUserControl, j);
