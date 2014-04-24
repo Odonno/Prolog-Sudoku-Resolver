@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using PrologSudoku.UI.UserControls;
 using PrologSudoku.ViewModel.ViewModel.Abstract;
 using PrologSudoku.ViewModel.ViewModel.Concrete;
 
@@ -39,7 +40,7 @@ namespace PrologSudoku.UI
 
         private void GenerateValues()
         {
-            for (short i = 0; i < 10; i++)
+            for (short i = 1; i <= 10; i++)
             {
                 // Generate rows of the grid
                 Values.RowDefinitions.Add(new RowDefinition());
@@ -47,13 +48,14 @@ namespace PrologSudoku.UI
                 // Generate values
 
                 // TODO : create a UserControl for the generation of values
+                var valueUserControl = new ValueUserControl(_mainViewModel, ((i == 10) ? (short)0 : i));
 
                 // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
 
                 // Create the TextBlock to show the value of the square
                 var textBlock = new TextBlock
                 {
-                    Text = (i == 9) ? string.Empty : (i + 1).ToString(),
+                    Text = (i == 10) ? string.Empty : i.ToString(),
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center
                 };
@@ -66,7 +68,7 @@ namespace PrologSudoku.UI
                     Child = textBlock
                 };
 
-                Grid.SetRow(border, i);
+                Grid.SetRow(border, i - 1);
                 Values.Children.Add(border);
             }
         }
@@ -96,6 +98,8 @@ namespace PrologSudoku.UI
                     short bottomThickness = (i == 8) ? extraThickness : minThickness;
 
                     // TODO : create a UserControl for the generation of squares
+                    var squareUserControl = new SquareUserControl(_mainViewModel, _mainViewModel.Sudoku.Squares[i * 9 + j]);
+
                     // TODO : add an event "LeftMouseButtonDown" to call the command "SelectSquareCommand" of the ViewModel (argument = Square clicked)
 
                     // Create the TextBlock to show the value of the square

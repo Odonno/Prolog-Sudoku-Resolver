@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrologSudoku.Model.Model.Abstract;
+using PrologSudoku.ViewModel.ViewModel.Abstract;
 
 namespace PrologSudoku.UI.UserControls
 {
@@ -19,9 +21,31 @@ namespace PrologSudoku.UI.UserControls
     /// </summary>
     public partial class SquareUserControl : UserControl
     {
-        public SquareUserControl()
+        #region Fields
+
+        private IMainViewModel _mainViewModel;
+
+        #endregion
+
+        #region Properties
+
+        public ISquare Square { get; private set; }
+
+        #endregion
+
+
+        #region Constructor
+
+        public SquareUserControl(IMainViewModel mainViewModel, ISquare square)
         {
+            Square = square;
+            _mainViewModel = mainViewModel;
+
+            DataContext = _mainViewModel;
+
             InitializeComponent();
         }
+
+        #endregion
     }
 }
