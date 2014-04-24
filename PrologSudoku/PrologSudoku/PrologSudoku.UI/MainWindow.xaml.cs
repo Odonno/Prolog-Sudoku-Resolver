@@ -47,6 +47,7 @@ namespace PrologSudoku.UI
                 // Generate values
 
                 // TODO : create a UserControl for the generation of values
+
                 // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
 
                 // Create the TextBlock to show the value of the square
