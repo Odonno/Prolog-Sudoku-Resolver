@@ -56,14 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UserControls\SquareUserControl.xaml.cs">
+      <DependentUpon>SquareUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\GenerateValue.xaml.cs">
-      <DependentUpon>GenerateValue.xaml</DependentUpon>
+    <Compile Include="UserControls\ValueUserControl.xaml.cs">
+      <DependentUpon>ValueUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,7 +75,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControls\GenerateValue.xaml">
+    <Page Include="UserControls\SquareUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ValueUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,9 +105,6 @@
     <Content Include="Assets\sudoku.pl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

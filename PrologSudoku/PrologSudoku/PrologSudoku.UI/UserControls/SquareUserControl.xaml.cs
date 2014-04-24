@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PrologSudoku.UI.UserControls
 {
     /// <summary>
-    /// Logique d'interaction pour GenerateValue.xaml
+    /// Interaction logic for SquareUserControl.xaml
     /// </summary>
-    public partial class GenerateValue : UserControl
+    public partial class SquareUserControl : UserControl
     {
-        public GenerateValue()
+        public SquareUserControl()
         {
             InitializeComponent();
         }
