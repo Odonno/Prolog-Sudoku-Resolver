@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using PrologSudoku.ViewModel.ViewModel.Abstract;
 using PrologSudoku.ViewModel.ViewModel.Concrete;
@@ -30,11 +31,5 @@ namespace PrologSudoku.UI.UserControls
         }
 
         #endregion
-
-        // add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
-        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Main.SelectedValue = Value;
-        }
     }
 }

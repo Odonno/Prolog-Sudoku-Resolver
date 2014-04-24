@@ -28,6 +28,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
         public short SelectedValue { get; set; }
         public ICommand ResolveCommand { get; private set; }
         public ICommand ClearSudokuCommand { get; private set; }
+        public ICommand SelectValueCommand { get; private set; }
         public ICommand SelectSquareCommand { get; private set; }
 
         #endregion
@@ -41,6 +42,7 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
 
             ResolveCommand = new RelayCommand(Resolve);
             ClearSudokuCommand = new RelayCommand(ClearSudoku, CanClearSudoku);
+            SelectValueCommand = new RelayCommand<short>(SelectValue, CanSelectValue);
             SelectSquareCommand = new RelayCommand<ISquare>(SelectSquare, CanSelectSquare);
         }
 
@@ -64,9 +66,18 @@ namespace PrologSudoku.ViewModel.ViewModel.Concrete
                 square.Value = 0;
         }
 
+        public bool CanSelectValue(short value)
+        {
+            return value != SelectedValue;
+        }
+        public void SelectValue(short value)
+        {
+            SelectedValue = value;
+        }
+
         public bool CanSelectSquare(ISquare square)
         {
-            return square.Value != SelectedValue;
+            return square != null && square.Value != SelectedValue;
         }
         public void SelectSquare(ISquare square)
         {

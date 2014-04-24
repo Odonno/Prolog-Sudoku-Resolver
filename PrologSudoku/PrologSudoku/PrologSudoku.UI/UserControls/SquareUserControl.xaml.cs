@@ -34,11 +34,5 @@ namespace PrologSudoku.UI.UserControls
         }
 
         #endregion
-
-        // add an event "LeftMouseButtonDown" to call the command "SelectSquareCommand" of the ViewModel (argument = Square clicked)
-        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Main.SelectSquareCommand.Execute(Square);
-        }
     }
 }

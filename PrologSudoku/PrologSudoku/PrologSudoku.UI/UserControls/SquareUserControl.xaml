@@ -5,10 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid MouseLeftButtonDown="OnMouseLeftButtonDown">
-        <Border BorderThickness="{Binding Path=Thickness}" BorderBrush="Lime">
-            <TextBlock Foreground="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+    <Button Command="{Binding Path=Main.SelectSquareCommand}" CommandParameter="{Binding Path=Square}"
+        BorderThickness="{Binding Path=Thickness}" BorderBrush="Lime">
+        <TextBlock Foreground="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                    Text="{Binding Path=Square.Value, Converter={StaticResource SquareValueToStringConverter}}" />
-        </Border>
-    </Grid>
+    </Button>
 </UserControl>
