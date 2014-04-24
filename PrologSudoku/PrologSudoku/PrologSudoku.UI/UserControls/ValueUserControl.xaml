@@ -7,7 +7,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Button Command="{Binding Path=Main.SelectValueCommand}" CommandParameter="{Binding Path=Value}"
             BorderBrush="Black" BorderThickness="1">
-        <TextBlock Foreground="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                   Text="{Binding Path=Value, Converter={StaticResource SquareValueToStringConverter}}" />
+        <TextBlock Foreground="Black" Text="{Binding Path=Value, Converter={StaticResource SquareValueToStringConverter}}" />
     </Button>
 </UserControl>

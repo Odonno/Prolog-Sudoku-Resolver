@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using PrologSudoku.Model.Model.Abstract;
 using PrologSudoku.ViewModel.ViewModel.Abstract;
 using PrologSudoku.ViewModel.ViewModel.Concrete;
