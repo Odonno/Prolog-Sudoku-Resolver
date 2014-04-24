@@ -47,29 +47,11 @@ namespace PrologSudoku.UI
 
                 // Generate values
 
-                // TODO : create a UserControl for the generation of values
+                // create a UserControl for the generation of values
                 var valueUserControl = new ValueUserControl(_mainViewModel, ((i == 10) ? (short)0 : i));
 
-                // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
-
-                // Create the TextBlock to show the value of the square
-                var textBlock = new TextBlock
-                {
-                    Text = (i == 10) ? string.Empty : i.ToString(),
-                    VerticalAlignment = VerticalAlignment.Center,
-                    HorizontalAlignment = HorizontalAlignment.Center
-                };
-
-                // Create a Border around the TextBlock
-                var border = new Border
-                {
-                    BorderThickness = new Thickness(1),
-                    BorderBrush = new SolidColorBrush(Colors.Black),
-                    Child = textBlock
-                };
-
-                Grid.SetRow(border, i - 1);
-                Values.Children.Add(border);
+                Grid.SetRow(valueUserControl, i - 1);
+                Values.Children.Add(valueUserControl);
             }
         }
 
@@ -92,35 +74,20 @@ namespace PrologSudoku.UI
                 for (short j = 0; j < 9; j++)
                 {
                     // Get thickness of the Square border
-                    short leftThickness = (j % 3 == 0) ? extraThickness : minThickness;
-                    short topThickness = (i % 3 == 0) ? extraThickness : minThickness;
-                    short rightThickness = (j == 8) ? extraThickness : minThickness;
-                    short bottomThickness = (i == 8) ? extraThickness : minThickness;
-
-                    // TODO : create a UserControl for the generation of squares
-                    var squareUserControl = new SquareUserControl(_mainViewModel, _mainViewModel.Sudoku.Squares[i * 9 + j]);
-
-                    // TODO : add an event "LeftMouseButtonDown" to call the command "SelectSquareCommand" of the ViewModel (argument = Square clicked)
-
-                    // Create the TextBlock to show the value of the square
-                    var textBlock = new TextBlock
+                    var borderThickness = new Thickness
                     {
-                        Text = _mainViewModel.Sudoku.Squares[i * 9 + j].Value.ToString(),
-                        VerticalAlignment = VerticalAlignment.Center,
-                        HorizontalAlignment = HorizontalAlignment.Center
+                        Left = (j % 3 == 0) ? extraThickness : minThickness,
+                        Top = (i % 3 == 0) ? extraThickness : minThickness,
+                        Right = (j == 8) ? extraThickness : minThickness,
+                        Bottom = (i == 8) ? extraThickness : minThickness
                     };
 
-                    // Create a Border around the TextBlock
-                    var border = new Border
-                    {
-                        BorderThickness = new Thickness(leftThickness, topThickness, rightThickness, bottomThickness),
-                        BorderBrush = new SolidColorBrush(Colors.Lime),
-                        Child = textBlock
-                    };
+                    // create a UserControl for the generation of squares
+                    var squareUserControl = new SquareUserControl(_mainViewModel, _mainViewModel.Sudoku.Squares[i * 9 + j], borderThickness);
 
-                    Grid.SetRow(border, i);
-                    Grid.SetColumn(border, j);
-                    Squares.Children.Add(border);
+                    Grid.SetRow(squareUserControl, i);
+                    Grid.SetColumn(squareUserControl, j);
+                    Squares.Children.Add(squareUserControl);
                 }
             }
         }

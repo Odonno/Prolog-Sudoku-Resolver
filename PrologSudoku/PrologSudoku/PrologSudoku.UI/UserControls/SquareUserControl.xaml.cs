@@ -30,22 +30,26 @@ namespace PrologSudoku.UI.UserControls
         #region Properties
 
         public ISquare Square { get; private set; }
+        public Thickness Thickness { get; private set; }
 
         #endregion
 
 
         #region Constructor
 
-        public SquareUserControl(IMainViewModel mainViewModel, ISquare square)
+        public SquareUserControl(IMainViewModel mainViewModel, ISquare square, Thickness thickness)
         {
             Square = square;
+            Thickness = thickness;
             _mainViewModel = mainViewModel;
 
-            DataContext = _mainViewModel;
+            DataContext = this;
 
             InitializeComponent();
         }
 
         #endregion
+
+        // TODO : add an event "LeftMouseButtonDown" to call the command "SelectSquareCommand" of the ViewModel (argument = Square clicked)
     }
 }

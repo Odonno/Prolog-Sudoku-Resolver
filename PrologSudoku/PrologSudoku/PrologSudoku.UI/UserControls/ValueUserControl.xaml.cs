@@ -40,11 +40,13 @@ namespace PrologSudoku.UI.UserControls
             Value = value;
             _mainViewModel = mainViewModel;
 
-            DataContext = _mainViewModel;
+            DataContext = this;
 
             InitializeComponent();
         }
 
         #endregion
+
+        // TODO : add an event "LeftMouseButtonDown" to update the property "SelectValue" of the ViewModel
     }
 }
