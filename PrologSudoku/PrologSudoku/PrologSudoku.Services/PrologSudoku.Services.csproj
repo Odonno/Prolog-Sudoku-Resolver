@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{93473887-7E56-4F41-8240-B225342C2F7E}</ProjectGuid>
+    <ProjectGuid>{812E5515-21AF-4029-9F27-0AE72F70EB42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrologSudoku.Model</RootNamespace>
-    <AssemblyName>PrologSudoku.Model</AssemblyName>
+    <RootNamespace>PrologSudoku.Services</RootNamespace>
+    <AssemblyName>PrologSudoku.Services</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,11 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Abstract\ISquare.cs" />
-    <Compile Include="Model\Abstract\ISudoku.cs" />
-    <Compile Include="Model\Concrete\Square.cs" />
-    <Compile Include="Model\Concrete\Sudoku.cs" />
+    <Compile Include="Infrastructure\SudokuHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abstract\IPrologResolverService.cs" />
+    <Compile Include="Services\Abstract\IRecursiveResolverService.cs" />
+    <Compile Include="Services\Abstract\IResolverService.cs" />
+    <Compile Include="Services\Concrete\RecursiveResolverService.cs" />
+    <Compile Include="Services\Concrete\PrologResolverService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrologSudoku.Model\PrologSudoku.Model.csproj">
+      <Project>{93473887-7e56-4f41-8240-b225342c2f7e}</Project>
+      <Name>PrologSudoku.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

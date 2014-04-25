@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,14 +40,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\MVVM\Command\RelayCommand.cs" />
+    <Compile Include="Infrastructure\MVVM\Command\RelayCommandGeneric.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\IExecuteWithObject.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\IExecuteWithObjectAndResult.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakAction.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakActionGeneric.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakFunc.cs" />
+    <Compile Include="Infrastructure\MVVM\Helpers\WeakFuncGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Abstract\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\IMainViewModel.cs" />
+    <Compile Include="ViewModel\Abstract\IViewModel.cs" />
+    <Compile Include="ViewModel\Concrete\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrologSudoku.Model\PrologSudoku.Model.csproj">
       <Project>{93473887-7e56-4f41-8240-b225342c2f7e}</Project>
       <Name>PrologSudoku.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrologSudoku.Services\PrologSudoku.Services.csproj">
+      <Project>{812e5515-21af-4029-9f27-0ae72f70eb42}</Project>
+      <Name>PrologSudoku.Services</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
