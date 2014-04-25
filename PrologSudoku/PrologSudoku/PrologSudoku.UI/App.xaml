@@ -5,5 +5,39 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <converters:SquareValueToStringConverter x:Key="SquareValueToStringConverter" x:Name="SquareValueToStringConverter"/>
+
+        <ControlTemplate x:Key="ButtonControlTemplate" TargetType="{x:Type Button}">
+			
+        	<Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+        		<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        	</Border>
+
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="IsDefaulted" Value="True">
+        			<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        		</Trigger>
+        		<Trigger Property="IsMouseOver" Value="True">
+        			<Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+        		</Trigger>
+        		<Trigger Property="IsPressed" Value="True">
+        			<Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+        		</Trigger>
+        		<Trigger Property="ToggleButton.IsChecked" Value="True">
+        			<Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+        		</Trigger>
+        		<Trigger Property="IsEnabled" Value="False">
+        			<Setter Property="Background" TargetName="border" Value="SkyBlue"/>
+        			<Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template" Value="{DynamicResource ButtonControlTemplate}"/>
+        </Style>
     </Application.Resources>
 </Application>
