@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PrologSudoku.ViewModel.ViewModel.Concrete.MainViewModel">
+    <Position X="6" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAEABACAAKQgAAAAAACAACAIAABAAAAQgAAAAAACAA=</HashCode>
+      <FileName>ViewModel\Concrete\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PrologSudoku.ViewModel.ViewModel.Abstract.BaseViewModel">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Abstract\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PrologSudoku.Model.Model.Concrete.Square">
+    <Position X="0.5" Y="2.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PrologSudoku.Model.Model.Concrete.Sudoku">
+    <Position X="0.5" Y="6.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PrologSudoku.Services.Services.Concrete.PrologResolverService">
+    <Position X="9" Y="4.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="PrologSudoku.ViewModel.ViewModel.Abstract.IViewModel">
+    <Position X="3.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Abstract\IViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PrologSudoku.ViewModel.ViewModel.Abstract.IMainViewModel">
+    <Position X="6" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEABACAAAQgAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Abstract\IMainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PrologSudoku.Model.Model.Abstract.ISquare">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PrologSudoku.Model.Model.Abstract.ISudoku">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PrologSudoku.Services.Services.Abstract.IResolverService">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="PrologSudoku.Services.Services.Abstract.IPrologResolverService">
+    <Position X="9" Y="2" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
